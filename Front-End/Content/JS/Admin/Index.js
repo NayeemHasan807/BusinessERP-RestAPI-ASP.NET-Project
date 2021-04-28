@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    $(".subtitle").html(Cookies.get("UserType"));
     $.ajax({
         type: "GET",
         url: "http://localhost:51045/api/admins",

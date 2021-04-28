@@ -1,10 +1,11 @@
 ﻿$(document).ready(function () {
     $.ajax({
-        type: "Post",
-        url: "/Admin/SalesLineChart",
-        data: {},
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
+        type: "GET",
+        url: "http://localhost:51045/api/admins/salesreport",
+        headers:"Content-Type:application/json",
+        headers:{
+            "Authorization":"basic "+Cookies.get("Authenticatior")
+        },
         success: function (response) {
             successFunc(response);
         }
