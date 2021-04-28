@@ -10,7 +10,11 @@ namespace BusinessERP.Repositories
     {
         public Employee GetByUserName(string username)
         {
-            return context.Employees.Where(x => x.UserName == username).FirstOrDefault();
+            var employee = context.Employees.Where(x => x.UserName == username).FirstOrDefault();
+            employee.Links.Add(new Link() { Url = "http://localhost:51045//api/employees", Method = "POST", Relation = "Create a new Employee resource" });
+            employee.Links.Add(new Link() { Url = "http://localhost:51045//api/employees/"+employee.EmployeeId, Method = "PUT", Relation = "Modify an existing Employee resource" });
+            employee.Links.Add(new Link() { Url = "http://localhost:51045//api/employees/"+employee.EmployeeId, Method = "DELETE", Relation = "Delete an existing Employee resource" });
+            return employee;
         }
         public List<Employee> GetAllSearchedByName(string name)
         {

@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Xml.Serialization;
 
 namespace BusinessERP.Models
 {
@@ -29,7 +31,14 @@ namespace BusinessERP.Models
         public string Status { get; set; }
         [Required]
         public int JobId { get; set; }
-        [NotMapped]
+        [JsonIgnore, XmlIgnore]
         public virtual JobCategory JobCategory { get; set; }
+        
+        List<Link> links = new List<Link>();
+        [NotMapped]
+        public List<Link> Links  
+        {
+            get { return links; }
+        }
     }
 }

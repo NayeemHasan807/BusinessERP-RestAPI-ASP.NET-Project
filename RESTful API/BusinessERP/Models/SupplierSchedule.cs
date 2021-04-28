@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Xml.Serialization;
 
 namespace BusinessERP.Models
 {
@@ -20,7 +22,7 @@ namespace BusinessERP.Models
         public System.DateTime Date { get; set; }
         [Required]
         public System.TimeSpan Time { get; set; }
-        [NotMapped]
+        [JsonIgnore, XmlIgnore]
         public virtual ICollection<SupplierLog> SupplierLogs { get; set; }
     }
 }

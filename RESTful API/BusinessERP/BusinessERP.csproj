@@ -99,6 +99,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Attributes\BasicAuthenticationAttribute.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -106,6 +107,10 @@
     <Compile Include="Migrations\202104251546417_BusinessERP_2.0_V1.cs" />
     <Compile Include="Migrations\202104251546417_BusinessERP_2.0_V1.designer.cs">
       <DependentUpon>202104251546417_BusinessERP_2.0_V1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104281459127_BusinessERP_2.0_V2.cs" />
+    <Compile Include="Migrations\202104281459127_BusinessERP_2.0_V2.designer.cs">
+      <DependentUpon>202104281459127_BusinessERP_2.0_V2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BusinessERPDbContext.cs" />
@@ -120,6 +125,7 @@
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\EmployeeText.cs" />
     <Compile Include="Models\JobCategory.cs" />
+    <Compile Include="Models\Link.cs" />
     <Compile Include="Models\Notice.cs" />
     <Compile Include="Models\RawMaterial.cs" />
     <Compile Include="Models\RawMaterialUsesLog.cs" />
@@ -132,6 +138,7 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Vendor.cs" />
     <Compile Include="Models\VendorProduct.cs" />
+    <Compile Include="Models\ViewModels\AdminIndexViewModel.cs" />
     <Compile Include="Models\ViewModels\ChangePasswordViewModel.cs" />
     <Compile Include="Models\ViewModels\CheckoutViewModel.cs" />
     <Compile Include="Models\ViewModels\ProfileViewModel.cs" />
@@ -169,6 +176,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202104251546417_BusinessERP_2.0_V1.resx">
       <DependentUpon>202104251546417_BusinessERP_2.0_V1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104281459127_BusinessERP_2.0_V2.resx">
+      <DependentUpon>202104281459127_BusinessERP_2.0_V2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

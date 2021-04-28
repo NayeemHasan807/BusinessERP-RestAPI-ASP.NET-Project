@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Xml.Serialization;
 
 namespace BusinessERP.Models
 {
@@ -18,7 +20,7 @@ namespace BusinessERP.Models
         public int Quantity { get; set; }
         public string ProductPicture { get; set; }
         public int CategoryId { get; set; }
-        [NotMapped]
+        [JsonIgnore, XmlIgnore]
         public virtual CompanyProductCategory CompanyProductCategory { get; set; }
     }
 }
