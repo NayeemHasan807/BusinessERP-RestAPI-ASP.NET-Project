@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="../../Content/CSS/HorizontalNavBarStyle.css" />
     <link rel="stylesheet" href="../../Content/CSS/DivBackground.css" />
     <link rel="stylesheet" href="../../Content/CSS/Button.css" />
+    <script type="text/javascript" src="../../Content/JS/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="../../Content/JS/Home/Login.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js" integrity="sha512-Meww2sXqNHxI1+5Dyh/9KAtvI9RZSA4c1K2k5iL02oiPO/RH3Q30L3M1albtqMg50u4gRTYdV4EXOQqXEI336A==" crossorigin="anonymous"></script>
   </head>
   <body>
     <div id="navbar">
@@ -19,16 +22,18 @@
       <h1 align="center" style="color: red">Login</h1>
       <br />
       <div align="center">
-        <form method="post" action="/User/Login">
+        <form>
           <table align="center">
             <tr>
               <td style="color: white; background-color: black">UserName :</td>
-              <td><input style="width: 97%" type="text" name="UserName" /></td>
+              <td>
+                <input style="width: 97%" type="text" id="UserName" name="UserName"/>
+              </td>
             </tr>
             <tr>
               <td style="color: white; background-color: black">Password :</td>
               <td>
-                <input style="width: 97%" type="password" name="Password" />
+                <input style="width: 97%" type="password" id="Password" name="Password"/>
               </td>
             </tr>
             <tr>
@@ -36,20 +41,16 @@
             </tr>
             <tr>
               <td colspan="2">
-                <input
-                  class="button"
-                  type="submit"
-                  name="Login"
-                  value="Login"
-                />
-                <a href="Index.html"
-                  ><input class="button" type="button" value="Back"
-                /></a>
+                <input class="button" type="button" id="Login" name="Login" value="Login"/>
+                <a href="Index.html">
+                  <input class="button" type="button" value="Back"/>
+                </a>
               </td>
             </tr>
           </table>
           <br />
-          <div style="color: red; background-color: black; width: 30.8%"></div>
+          <div style="color: red; background-color: black; width: 30.8%" id="msg">
+          </div>
         </form>
       </div>
     </div>

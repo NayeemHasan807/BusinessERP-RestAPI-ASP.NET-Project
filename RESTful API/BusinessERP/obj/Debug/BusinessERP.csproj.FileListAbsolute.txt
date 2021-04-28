@@ -48,3 +48,6 @@ C:\Users\User\Desktop\BusinessERP\obj\Debug\BusinessERP.dll
 C:\Users\User\Desktop\BusinessERP\obj\Debug\BusinessERP.pdb
 C:\Users\User\Desktop\BusinessERP\obj\Debug\BusinessERP.Migrations.BusinessERP_20_V1.resources
 C:\Users\User\Desktop\BusinessERP\obj\Debug\BusinessERP.csproj.GenerateResource.cache
+C:\Users\User\Desktop\BusinessERP\bin\System.Web.Cors.dll
+C:\Users\User\Desktop\BusinessERP\bin\System.Web.Http.Cors.dll
+C:\Users\User\Desktop\BusinessERP\bin\System.Web.Http.Cors.xml
