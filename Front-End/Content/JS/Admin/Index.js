@@ -15,13 +15,13 @@ $(document).ready(function () {
                 var data=xmlHttp.responseJSON;
                 $("#employeename").html(data.profile.employeeName);
                 var image=document.getElementById("ProfilePicture")
-                image.src =data.profile.profilePicture;
+                image.src ="http://localhost:51045/"+data.profile.profilePicture;
                 if(data.stockOut>0)
                 {
                     var html = `<p class="card-text">
                                     Total stock out products count is `+ data.stockOut+
                                 `</p>
-                                <a href="/CompanyProduct/StockOut" class="btn btn-dark">View Stock Out Products List</a>`;
+                                <a href="../CompanyProduct/StockOut.html" class="btn btn-dark">View Stock Out Products List</a>`;
                     $("#StockOut").html(html);
                 }
                 else
@@ -36,7 +36,7 @@ $(document).ready(function () {
                     var html = `<p class="card-text">
                                      Total low stock products count is `+ data.lowStock+
                                 `</p>
-                                <a href="/CompanyProduct/LowStock" class="btn btn-dark">View Low Stock Products List</a>`;
+                                <a href="../CompanyProduct/LowStock.html" class="btn btn-dark">View Low Stock Products List</a>`;
                     $("#LowStock").html(html);
                 }
                 else

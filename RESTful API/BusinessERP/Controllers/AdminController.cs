@@ -47,28 +47,26 @@ namespace BusinessERP.Controllers
         [Route("salesreport"),HttpGet,BasicAuthentication]
         public IHttpActionResult SalesLineChart()
         {
-            
-                var customerinvoice = cusinvrepo.GetAll();
-                List<string> date = new List<string>();
-                var fetchdate = customerinvoice.Select(x => x.OrderDate).Distinct().OrderBy(y => y.Date);
-                foreach (var item in fetchdate)
+            var customerinvoice = cusinvrepo.GetAll();
+            List<string> date = new List<string>();
+            var fetchdate = customerinvoice.Select(x => x.OrderDate).Distinct().OrderBy(y => y.Date);
+            foreach (var item in fetchdate)
+            {
+                var i = item.ToString("dd-MM-yyyy");
+                date.Add(i);
+            }
+            List<double> sales = new List<double>();
+            foreach (var item in fetchdate)
+            {
+                var info = customerinvoice.Where(x => x.OrderDate == item).ToList();
+                double count = 0;
+                foreach (var i in info)
                 {
-                    var i = item.ToString("dd-MM-yyyy");
-                    date.Add(i);
+                    count = count + i.TotalWithTax;
                 }
-                List<double> sales = new List<double>();
-                foreach (var item in fetchdate)
-                {
-                    var info = customerinvoice.Where(x => x.OrderDate == item).ToList();
-                    double count = 0;
-                    foreach (var i in info)
-                    {
-                        count = count + i.TotalWithTax;
-                    }
-                    sales.Add(Math.Round(count));
-                }
-                return Ok(new { date, sales });
-            
+                sales.Add(Math.Round(count));
+            }
+            return Ok(new { date, sales });
         }
     }
 }
