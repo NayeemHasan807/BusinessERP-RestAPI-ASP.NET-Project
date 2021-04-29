@@ -46,5 +46,24 @@ namespace BusinessERP.Controllers
                 return StatusCode(HttpStatusCode.NoContent);
             
         }
+        [Route("jobcategorylist"), HttpGet, BasicAuthentication]
+        public IHttpActionResult JobCategoryList()
+        {
+            return Ok(jobcatrepo.GetAll());
+
+        }
+        [Route("advancedsearch"),HttpGet,BasicAuthentication]
+        public IHttpActionResult AdvancedSearch(string searchkey,string order,int category)
+        {
+            var data = employeerepo.AddLinks(employeerepo.GetAllByAdvancedSearch(category, order, searchkey));
+            if (data.Count > 0)
+            {
+                return Ok(data);
+            }
+            else
+                return StatusCode(HttpStatusCode.NoContent);
+            
+        }
+
     }
 }

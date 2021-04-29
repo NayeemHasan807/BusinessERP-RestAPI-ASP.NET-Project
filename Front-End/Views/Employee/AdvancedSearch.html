@@ -11,7 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
     <script type="text/javascript" src="../../Content/JS/jquery-3.5.1.js"></script>
     <script type="text/javascript" src="../../Content/JS/Admin/AdminCheck.js"></script>
-    <script type="text/javascript" src="../../Content/JS/Employee/Index.js"></script>
+    <script type="text/javascript" src="../../Content/JS/Employee/AdvancedSearch.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js" integrity="sha512-Meww2sXqNHxI1+5Dyh/9KAtvI9RZSA4c1K2k5iL02oiPO/RH3Q30L3M1albtqMg50u4gRTYdV4EXOQqXEI336A==" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -37,12 +37,22 @@
         </nav>
     </div>
     <div id="workspace">
-        <h2>Employee List</h2>
+        <h2>AdvancedSearch</h2>
         <br />
         <form>
-            <i class="fas fa-search"></i>
-            <input type="text" id="searchkey" name="searchkey" placeholder="Search employee by name"/>
-            <input type="button" id="reload" value="Reload List"/> 
+            <div>
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchkey" name="searchkey" placeholder="Search employee by name"/>
+                Name Order:
+                <select id="order" name="order">
+                    <option value="Ascending">A-Z</option>
+                    <option value="Descending">Z-A</option>
+                </select>
+                Job Category:
+                <select id="category" name="category">
+                </select>
+                <input type="button" id="search" value="Search" />
+            </div>
         </form>
         <div id="show">
 
