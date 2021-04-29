@@ -8,12 +8,22 @@ namespace BusinessERP.Repositories
 {
     public class EmployeeRepository:Repository<Employee>
     {
+        public List<Employee> AddLinks(List<Employee> employees)
+        {
+            foreach(var item in employees)
+            {
+                item.Links.Add(new Link() { Url = "http://localhost:51045//api/employees", Method = "POST", Relation = "Create a new Employee resource" });
+                item.Links.Add(new Link() { Url = "http://localhost:51045//api/employees/" + item.EmployeeId, Method = "PUT", Relation = "Modify an existing Employee resource" });
+                item.Links.Add(new Link() { Url = "http://localhost:51045//api/employees/" + item.EmployeeId, Method = "DELETE", Relation = "Delete an existing Employee resource" });
+            }
+            return employees;
+        }
         public Employee GetByUserName(string username)
         {
             var employee = context.Employees.Where(x => x.UserName == username).FirstOrDefault();
             employee.Links.Add(new Link() { Url = "http://localhost:51045//api/employees", Method = "POST", Relation = "Create a new Employee resource" });
-            employee.Links.Add(new Link() { Url = "http://localhost:51045//api/employees/"+employee.EmployeeId, Method = "PUT", Relation = "Modify an existing Employee resource" });
-            employee.Links.Add(new Link() { Url = "http://localhost:51045//api/employees/"+employee.EmployeeId, Method = "DELETE", Relation = "Delete an existing Employee resource" });
+            employee.Links.Add(new Link() { Url = "http://localhost:51045//api/employees/" + employee.EmployeeId, Method = "PUT", Relation = "Modify an existing Employee resource" });
+            employee.Links.Add(new Link() { Url = "http://localhost:51045//api/employees/" + employee.EmployeeId, Method = "DELETE", Relation = "Delete an existing Employee resource" });
             return employee;
         }
         public List<Employee> GetAllSearchedByName(string name)
