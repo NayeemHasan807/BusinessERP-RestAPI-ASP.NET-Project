@@ -22,7 +22,8 @@ namespace BusinessERP.Controllers
         private EmployeeRepository employeerepo = new EmployeeRepository();
         private UserRepository userrepo = new UserRepository();
         private JobCategoryRepository jobcatrepo = new JobCategoryRepository();
-
+        
+        //Get All
         [Route(""),HttpGet,BasicAuthentication]
         public IHttpActionResult EmployeeList()
         {
@@ -35,6 +36,7 @@ namespace BusinessERP.Controllers
                 return StatusCode(HttpStatusCode.NoContent);
             
         }
+        //Search By Name
         [Route("search"),HttpGet,BasicAuthentication]
         public IHttpActionResult Index(string searchkey)
         {
@@ -52,12 +54,14 @@ namespace BusinessERP.Controllers
                 return StatusCode(HttpStatusCode.NoContent);
             
         }
+        //Get All Job Category List
         [Route("jobcategorylist"), HttpGet, BasicAuthentication]
         public IHttpActionResult JobCategoryList()
         {
             return Ok(jobcatrepo.GetAll());
 
         }
+        //Advanced search on employee list
         [Route("advancedsearch"),HttpGet,BasicAuthentication]
         public IHttpActionResult AdvancedSearch(string searchkey,string order,int category)
         {
@@ -70,6 +74,7 @@ namespace BusinessERP.Controllers
                 return StatusCode(HttpStatusCode.NoContent);
             
         }
+        //Create new employee
         [Route(""),HttpPost,BasicAuthentication]
         public IHttpActionResult Create(Employee employee)
         {
@@ -83,13 +88,14 @@ namespace BusinessERP.Controllers
                 user.UserStatus = employee.Status;
                 employeerepo.Insert(employee);
                 userrepo.Insert(user);
-                var emp = employeerepo.GetByUserName(employee.UserName);
+                var emp = employeerepo.AddLink(employeerepo.GetByUserName(employee.UserName));
                 string url = "http://localhost:51045/api/employees/" + emp.EmployeeId;
                 return Created("url",emp);
             }
                     
             return BadRequest(ModelState);
         }
+        //Add profile picture when creating or editing any employee
         [Route("{id}/addprofilepicture"),HttpPost,BasicAuthentication]
         public async Task<IHttpActionResult> AddProfilePicture(int id)
         {
@@ -112,6 +118,40 @@ namespace BusinessERP.Controllers
                 return Created("http://localhost:51045/"+db, employee);
             }
             return StatusCode(HttpStatusCode.BadRequest);
+        }
+        //Get indivisual employee details
+        [Route("{id}"),HttpGet]
+        public IHttpActionResult Details(int id)
+        {
+            var employee = employeerepo.AddLink(employeerepo.GetById(id));
+            if (employee != null)
+            {
+                var jobTitle = jobcatrepo.GetById(employee.JobId);
+                return Ok(new { employee , jobTitle});
+            }
+            else
+                return StatusCode(HttpStatusCode.NoContent);
+        }
+        //Delete an existing employee
+        [Route("{id}"),HttpDelete,BasicAuthentication]
+        public IHttpActionResult RemoveEmployee(int id)
+        {
+            var employee = employeerepo.GetById(id); 
+            userrepo.DeleteByUsername(employee.UserName);
+            employeerepo.Delete(id);
+            return StatusCode(HttpStatusCode.NoContent);
+        }
+        //Edit an existing employee
+        [Route("{id}"),HttpPut,BasicAuthentication]
+        public IHttpActionResult EditEmployee(int id, Employee employee)
+        {
+            if (ModelState.IsValid)
+            {
+                employee.EmployeeId = id;
+                employeerepo.Update(employee);
+                return Ok(employeerepo.AddLink(employee));
+            }
+            return BadRequest(ModelState);
         }
 
     }

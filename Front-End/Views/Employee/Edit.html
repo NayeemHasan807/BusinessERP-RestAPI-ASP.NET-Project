@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>AddEmployee</title>
+    <title>EditEmployee</title>
     <link rel="stylesheet" href="../../Content/CSS/VerticalNavBarStyle.css" />
     <link rel="stylesheet" href="../../Content/CSS/Style.css" />
     <link rel="stylesheet" href="../../Content/CSS/bootstrap.css" />
@@ -11,7 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
     <script type="text/javascript" src="../../Content/JS/jquery-3.5.1.js"></script>
     <script type="text/javascript" src="../../Content/JS/Admin/AdminCheck.js"></script>
-    <script type="text/javascript" src="../../Content/JS/Employee/Create.js"></script>
+    <script type="text/javascript" src="../../Content/JS/Employee/Edit.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js" integrity="sha512-Meww2sXqNHxI1+5Dyh/9KAtvI9RZSA4c1K2k5iL02oiPO/RH3Q30L3M1albtqMg50u4gRTYdV4EXOQqXEI336A==" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -37,7 +37,7 @@
         </nav>
     </div>
     <div id="workspace">
-        <h2>Add New Employee</h2>
+        <h2>Edit</h2>
         <br />
         <form enctype="multipart/form-data">
             <table id="view">
@@ -51,7 +51,7 @@
                 <tr>
                     <td>User Name :</td>
                     <td>
-                        <input type="text" id="UserName" name="UserName"/>
+                        <input type="text" id="UserName" name="UserName" readonly/>
                         <span style="color:red;background-color:white" id="UserNameError"></span>
                     </td>
                 </tr>
@@ -116,7 +116,7 @@
                 <tr>
                     <td>Profile Status :</td>
                     <td>
-                        <input type="hidden" id="Status" name="Status" value="Active" />Active
+                        <input type="text" id="Status" name="Status" readonly/>
                     </td>
                 </tr>
                 <tr>
@@ -130,9 +130,9 @@
                 </tr>
                 <tr>
                     <td colspan="3">
-                        <input type="button" id="Add" value="Add"/>
-                        <input type="reset" id="reset"/>
-                        <a href="../Admin/Index.html">
+                        <input type="button" id="Update" value="Update"/>
+                        <input type="button" id="reset" value="Reset"/>
+                        <a href="Index.html">
                             <button type="button">
                                 Back
                             </button>

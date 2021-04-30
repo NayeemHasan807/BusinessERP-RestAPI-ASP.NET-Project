@@ -1,43 +1,96 @@
 $(document).ready(function () {
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var EmployeeId = url.searchParams.get("EmployeeId");
+    var ProfilePicture ="";
+    console.log(EmployeeId);
     $.ajax({
-        method:"GET",
-        url:"http://localhost:51045//api/employees/jobcategorylist",
+        type: "GET",
+        url: "http://localhost:51045/api/employees/"+EmployeeId,
         headers:"Content-Type:application/json",
         headers:{
             "Authorization":"basic "+Cookies.get("Authenticatior")
         },
-        complete:function(xmlHttp,status){
-            if(xmlHttp.status==200)
+        complete: function (xmlHttp,status) {
+            if(xmlHttp.status=200)
             {
-                var str='<option value="">None</option>';
-                var data=xmlHttp.responseJSON;
-                for (var i = 0; i < data.length; i++) {
-                    
-                    str+="<option value="+data[i].jobId+">"+data[i].jobTitle+"</option>";
+                var data = xmlHttp.responseJSON;
+                //console.log(data);
+                ProfilePicture = data.employee.profilePicture;
+                document.getElementById("EmployeeName").value=data.employee.employeeName;
+                document.getElementById("UserName").value=data.employee.userName;
+                document.getElementById("Email").value=data.employee.email;
+                var dob= data.employee.dateOfBirth.split("T");
+                //console.log(dob[0]);
+                $("#DateOfBirth").val(dob[0]);
+                document.getElementById("Address").value=data.employee.address;
+                document.getElementById("Status").value=data.employee.status;
+                var jd= data.employee.joiningDate.split("T");
+                //console.log(jd[0]);
+                $("#JoiningDate").val(jd[0]);
+                var Gender=data.employee.gender;
+                if(Gender=="Male")
+                {
+                    $("#Male").prop('checked', true);
                 }
-    
-                $("#JobId").html(str);
+                else if(Gender=="Female")
+                {
+                    $("#Female").prop('checked', true);
+                }
+                else
+                {
+                    $("#Other").prop('checked', true);
+                }
+                var JobTitle = data.jobTitle.jobTitle;
+                console.log(JobTitle);
+                $.ajax({
+                    method:"GET",
+                    url:"http://localhost:51045//api/employees/jobcategorylist",
+                    headers:"Content-Type:application/json",
+                    headers:{
+                        "Authorization":"basic "+Cookies.get("Authenticatior")
+                    },
+                    complete:function(xmlHttp,status){
+                        if(xmlHttp.status==200)
+                        {
+                            var str='<option value="">None</option>';
+                            var data=xmlHttp.responseJSON;
+                            for (var i = 0; i < data.length; i++) {
+                                if(data[i].jobTitle==JobTitle)
+                                {
+                                    console.log("aisere");
+                                    str+="<option value="+data[i].jobId+" selected>"+data[i].jobTitle+"</option>";
+                                    continue;
+                                }
+                                str+="<option value="+data[i].jobId+">"+data[i].jobTitle+"</option>";
+                            }
+                
+                            $("#JobId").html(str);
+                        }
+                        else
+                        {
+                            $("#msg").html(xmlHttp.status+":"+xmlHttp.statusText);
+                        }
+                    }
+                });
             }
             else
             {
-                $("#msg").html(xmlHttp.status+":"+xmlHttp.statusText);
+                var html=`<div class="alert alert-primary">
+                            <p>No employee of id `+EmployeeId+`</p>
+                        </div>`;
+                $("#workspace").html();
             }
         }
     });
-    $("#Add").click(function () {
+    $("#Update").click(function () {
         var EmployeeNameError = document.getElementById("EmployeeNameError");
         var EmployeeName = document.getElementById("EmployeeName").value;
         var a=false;
-        var UserNameError = document.getElementById("UserNameError");
         var UserName = document.getElementById("UserName").value;
         var EmailError = document.getElementById("EmailError");
         var Email = document.getElementById("Email").value;
         var c=false;
-        var GenderError = document.getElementById("GenderError");
-        var Male = document.getElementById("Male").checked;
-        var Female = document.getElementById("Female").checked;
-        var Other = document.getElementById("Other").checked;
-        var d=false;
         var DateOfBirthError = document.getElementById("DateOfBirthError");
         var DateOfBirth = document.getElementById("DateOfBirth").value;
         var e=false;
@@ -50,7 +103,6 @@ $(document).ready(function () {
         var JobIdError = document.getElementById("JobIdError");
         var JobId = document.getElementById("JobId").value;
         var h=false;
-        var ImageError = document.getElementById("ImageError");
         var Image = document.getElementById("Image").value;
         var i=false;
         if( EmployeeName != "")
@@ -151,14 +203,6 @@ $(document).ready(function () {
         {
             EmailError.innerHTML = "Cannot be empty";
         }
-        if( Male==true || Female==true || Other==true)
-        {
-            d=true;
-        }
-        else
-        {
-            GenderError.innerHTML="Must need to be selected";
-        }
         if( DateOfBirth != "")
         {
             var devide = DateOfBirth.split("-");
@@ -246,6 +290,7 @@ $(document).ready(function () {
             }
             if( last == "jpeg" || last == "png" || last == "jpg")
             {
+                console.log("in");
                 i=true;
             }
             else
@@ -253,11 +298,10 @@ $(document).ready(function () {
                 ImageError.innerHTML = "'jpeg' or 'png' is only acceptable";
             }
         }
-        else
-        {
-            ImageError.innerHTML="Can not be empty";
-        }
         var Gender ="";
+        var Male = document.getElementById("Male").checked;
+        var Female = document.getElementById("Female").checked;
+        var Other = document.getElementById("Other").checked;
         if(Male==true)
         {
             Gender="Male";
@@ -270,104 +314,117 @@ $(document).ready(function () {
         {
             Gender="Other";
         }
-        if(a==true & c==true & d==true & e==true & f==true & g==true & h==true & i==true)
+        if(a==true & c==true & e==true & f==true & g==true & h==true)
         {
-            if( UserName != "")
+            if(i==true)
             {
-                if( UserName.length>3)
-                {
-                    $.ajax({
-                        type: "GET",
-                        url: "http://localhost:51045//api/users/check",
-                        headers:"Content-Type:application/json",
-                        headers:{
-                            "Authorization":"basic "+Cookies.get("Authenticatior")
-                        },
-                        data:{
-                            "userName":UserName
-                        },
-                        complete:function(xmlHttp,status){
-                            if(xmlHttp.status==204)
-                            {
-                                $.ajax({
-                                    type: "POST",
-                                    url: "http://localhost:51045/api/employees",
-                                    headers:"Content-Type:application/json",
-                                    headers:{
-                                        "Authorization":"basic "+Cookies.get("Authenticatior")
-                                    },
-                                    data:{
-                                        "employeeName":EmployeeName,
-                                        "userName":UserName,
-                                        "email":Email,
-                                        "gender":Gender,
-                                        "dateOfBirth":DateOfBirth,
-                                        "Address":Address,
-                                        "joiningDate":JoiningDate,
-                                        "Status":"Active",
-                                        "profilePicture":"#",
-                                        "jobId":JobId
-                                    },
-                                    complete:function(xmlHttp,status){
-                                        if(xmlHttp.status==201)
-                                        {
-                                            var data = xmlHttp.responseJSON;
-                                            var employeeId = data.employeeId
-                                            var property = document.getElementById("Image").files[0];
-                                            var formdata = new FormData();
-                                            formdata.append("image",property);
-                                            $.ajax({
-                                                type: "POST",
-                                                url: "http://localhost:51045/api/employees/"+employeeId+"/addprofilepicture",
-                                                data: formdata,
-                                                headers:"Content-Type:multipart/form-data",
-                                                headers:{
-                                                    "Authorization":"basic "+Cookies.get("Authenticatior")
-                                                },
-                                                contentType:false,
-                                                cache:false,
-                                                processData:false,
-                                                complete:function(xmlHttp,status){
-                                                    if(xmlHttp.status==201)
-                                                    {
-                                                        window.location.replace("http://127.0.0.1:5500/Views/Employee/Index.html");
-                                                    }
-                                                    else
-                                                    {
-                                                        $("#msg").html(xmlHttp.status);
-                                                    }
-                                                }
-                                            });
-                                        }
-                                        else
-                                        {
-                                            $("#msg").html(xmlHttp.status);
-                                        }
+                $.ajax({
+                    type: "PUT",
+                    url: "http://localhost:51045/api/employees/"+EmployeeId,
+                    headers:"Content-Type:application/json",
+                    headers:{
+                        "Authorization":"basic "+Cookies.get("Authenticatior")
+                    },
+                    data:{
+                        "employeeName" :EmployeeName,
+                        "userName" :$("#UserName").val(),
+                        "email" :Email,
+                        "gender" :Gender,
+                        "dateOfBirth":DateOfBirth,
+                        "address":Address,
+                        "joiningDate":JoiningDate,
+                        "status":$("#Status").val(),
+                        "profilePicture": ProfilePicture,
+                        "jobId":JobId
+                    },
+                    complete: function (xmlHttp,status) {
+                        if(xmlHttp.status==200)
+                        {
+                            var data = xmlHttp.responseJSON;
+                            var employeeId = data.employeeId;
+                            var property = document.getElementById("Image").files[0];
+                            var formdata = new FormData();
+                            formdata.append("image",property);
+                            $.ajax({
+                                type: "POST",
+                                url: "http://localhost:51045/api/employees/"+employeeId+"/addprofilepicture",
+                                data: formdata,
+                                headers:"Content-Type:multipart/form-data",
+                                headers:{
+                                    "Authorization":"basic "+Cookies.get("Authenticatior")
+                                },
+                                contentType:false,
+                                cache:false,
+                                processData:false,
+                                complete:function(xmlHttp,status){
+                                    if(xmlHttp.status==201)
+                                    {
+                                        console.log("ok");
+                                        window.location.replace("http://127.0.0.1:5500/Views/Employee/Index.html");
                                     }
-                                });
-                            }
-                            else
-                            {
-                                UserNameError.innerHTML="This username is taken"
-                            }
+                                    else
+                                    {
+                                        console.log("notok")
+                                        $("#msg").html(xmlHttp.status);
+                                    }
+                                }
+                            });  
                         }
-                    });
-                }
-                else
-                {
-                    UserNameError.innerHTML="Must need to be atlist 3 character";
-                }
+                        else
+                        {
+                            $("#msg").html(xmlHttp.status);
+                        }
+                    }
+                });
             }
             else
             {
-                UserNameError.innerHTML="Can not be empty";
+                // console.log(EmployeeName);
+                // console.log($("#UserName").val());
+                // console.log(Email);
+                // console.log(Gender);
+                // console.log(DateOfBirth);
+                // console.log(Address);
+                // console.log(JoiningDate);
+                // console.log($("#Status").val());
+                // console.log(ProfilePicture);
+                // console.log(JobId);
+                $.ajax({
+                    type: "PUT",
+                    url: "http://localhost:51045/api/employees/"+EmployeeId,
+                    headers:"Content-Type:application/json",
+                    headers:{
+                        "Authorization":"basic "+Cookies.get("Authenticatior")
+                    },
+                    data:{
+                        "employeeName" :EmployeeName,
+                        "userName" :$("#UserName").val(),
+                        "email" :Email,
+                        "gender" :Gender,
+                        "dateOfBirth":DateOfBirth,
+                        "address":Address,
+                        "joiningDate":JoiningDate,
+                        "status":$("#Status").val(),
+                        "profilePicture": ProfilePicture,
+                        "jobId":JobId
+                    },
+                    complete: function (xmlHttp,status) {
+                        if(xmlHttp.status==200)
+                        {
+                            window.location.replace("http://127.0.0.1:5500/Views/Employee/Index.html");    
+                        }
+                        else
+                        {
+                            $("#msg").html(xmlHttp.status);
+                        }
+                    }
+                });
             }
         }
         else
         {
             $("#msg").html("Some problem occured. Please try again");
         }
-        
     });
     $("#EmployeeName").click(function () {
         EmployeeNameError.innerHTML="";
@@ -406,5 +463,7 @@ $(document).ready(function () {
         JoiningDateError.innerHTML="";
         JobIdError.innerHTML="";
         ImageError.innerHTML="";
+        $("#Image").val("");
+        window.location.reload();
     });
 });
