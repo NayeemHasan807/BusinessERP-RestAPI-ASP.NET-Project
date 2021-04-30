@@ -3,10 +3,16 @@ using BusinessERP.Models;
 using BusinessERP.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
+using System.Web;
+using System.Web.Hosting;
 using System.Web.Http;
+using System.Windows.Forms;
 
 namespace BusinessERP.Controllers
 {
@@ -63,6 +69,49 @@ namespace BusinessERP.Controllers
             else
                 return StatusCode(HttpStatusCode.NoContent);
             
+        }
+        [Route(""),HttpPost,BasicAuthentication]
+        public IHttpActionResult Create(Employee employee)
+        {
+            if (ModelState.IsValid)
+            {
+                User user = new User();
+                JobCategory job = jobcatrepo.GetById(employee.JobId);
+                user.UserName = employee.UserName;
+                user.Password = employee.UserName;
+                user.UserType = job.JobTitle;
+                user.UserStatus = employee.Status;
+                employeerepo.Insert(employee);
+                userrepo.Insert(user);
+                var emp = employeerepo.GetByUserName(employee.UserName);
+                string url = "http://localhost:51045/api/employees/" + emp.EmployeeId;
+                return Created("url",emp);
+            }
+                    
+            return BadRequest(ModelState);
+        }
+        [Route("{id}/addprofilepicture"),HttpPost,BasicAuthentication]
+        public async Task<IHttpActionResult> AddProfilePicture(int id)
+        {
+            var ctx = HttpContext.Current;
+            var root = ctx.Server.MapPath("~/Content/ProfilePictures");
+            var provider = new MultipartFileStreamProvider(root);
+            await Request.Content.ReadAsMultipartAsync(provider);
+            foreach(var file in provider.FileData)
+            {
+                var name = file.Headers.ContentDisposition.FileName;
+                name = name.Trim('"');
+                var localFileName = file.LocalFileName;
+                name = DateTime.Now.ToString("yyyy-MM-dd")+"-"+ DateTime.Now.ToString("hh-mm-ss") + name;
+                var filePath = Path.Combine(root, name);
+                var db = "Content/ProfilePictures/" + name;
+                File.Move(localFileName, filePath);
+                var employee = employeerepo.GetById(id);
+                employee.ProfilePicture = db;
+                employeerepo.Update(employee);
+                return Created("http://localhost:51045/"+db, employee);
+            }
+            return StatusCode(HttpStatusCode.BadRequest);
         }
 
     }

@@ -33,5 +33,18 @@ namespace BusinessERP.Controllers
             }
             return StatusCode(HttpStatusCode.BadRequest);
         }
+
+        [Route("check"), HttpGet,BasicAuthentication]
+        public IHttpActionResult CheckUserNameAvailablity(string userName)
+        {
+            var checkUser = userrepo.GetByUserName(userName);
+            if (checkUser != null)
+            {
+                return Ok();
+            }
+            else
+                return StatusCode(HttpStatusCode.NoContent);
+        }
     }
+
 }
