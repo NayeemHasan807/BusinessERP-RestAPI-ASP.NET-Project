@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>NoticeEdit</title>
+    <link rel="stylesheet" href="../../Content/CSS/VerticalNavBarStyle.css" />
+    <link rel="stylesheet" href="../../Content/CSS/Style.css" />
+    <link rel="stylesheet" href="../../Content/CSS/bootstrap.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    <script type="text/javascript" src="../../Content/JS/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="../../Content/JS/Admin/AdminCheck.js"></script>
+    <script type="text/javascript" src="../../Content/JS/Admin/NoticeEdit.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js" integrity="sha512-Meww2sXqNHxI1+5Dyh/9KAtvI9RZSA4c1K2k5iL02oiPO/RH3Q30L3M1albtqMg50u4gRTYdV4EXOQqXEI336A==" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <nav id="sidebar">
+            <div class="title">
+                Alpha Enterprice LTD
+            </div>
+            <div class="subtitle"></div>
+            <ul class="list-items">
+                <li><a href="Index.html"><i class="fas fa-home"></i>  Dashboard</a></li>
+                <li><a href="../Employee/Create.html"><i class="fas fa-plus"></i>  Add New Employee</a></li>
+                <li><a href="../Employee/Index.html"><i class="fas fa-list-ol"></i>  Employee List</a></li>
+                <li><a href="../Employee/AdvancedSearch.html"><i class="fas fa-search"></i>  Advanced Search</a></li>
+                <li><a href="/EmployeeText/Index"><i class="fas fa-inbox"></i>  Massages</a></li>
+                <li><a href="ViewAllNotice.html"><i class="fas fa-bell"></i>  Notices</a></li>
+                <li><a href="CreateNewNotice.html"><i class="fas fa-paper-plane"></i>  Send Notice</a></li>
+                <li><a href="Report.html"><i class="fas fa-file-pdf"></i>  Report</a></li>
+                <li><a href="../Profile/Index.html"><i class="fas fa-user"></i>  Profile</a></li>
+                <li><a href="../Logout/Logout.html"><i class="fas fa-sign-out-alt"></i>  Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="workspace">
+        <h2>Notice Edit</h2>
+        <form>
+            Receiver Type:<br />
+            <select id="ReceiverType" name="ReceiverType">
+                <option value="All">All</option>
+                <option value="Support">Support</option>
+                <option value="Sales Manager">Sales Manager</option>
+                <option value="Assets Manager">Assets Manager</option>
+                <option value="Finance Manager">Finance Manager</option>
+                <option value="Supplier">Supplier</option>
+                <option value="Employee">Employee</option>
+                <option value="Customer">Customer</option>
+                <option value="Vendor">Vendor</option>
+            </select><br />
+            <div>
+                <span style="color:red;background-color:white" id="ReceiverTypeError"></span>
+            </div>
+            Notice Title:<br />
+            <input type="text" id="NoticeTitle" name="NoticeTitle"><br />
+            <div>
+                <span style="color:red;background-color:white" id="NoticeTitleError"></span>
+            </div>
+            Body:<br />
+            <textarea rows="5" cols="80" id="NoticeBody" name="NoticeBody"></textarea><br />
+            <div>
+                <span style="color:red;background-color:white" id="NoticeBodyError"></span>
+            </div>
+            <input type="button" id="Update" value="Update">
+            <input type="button" id="Reset" value="Reset">
+            <a href="ViewAllNotice.html">
+                <button type="button">
+                    Back
+                </button>
+            </a>
+        </form> 
+        <div id="msg"></div>
+    </div>
+    <br>
+</body>
+</html>

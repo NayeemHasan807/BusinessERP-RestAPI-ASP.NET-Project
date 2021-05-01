@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -15,5 +16,11 @@ namespace BusinessERP.Models
         public string NoticeBody { get; set; }
         [Required]
         public string ReceiverType { get; set; }
+        List<Link> links = new List<Link>();
+        [NotMapped]
+        public List<Link> Links
+        {
+            get { return links; }
+        }
     }
 }

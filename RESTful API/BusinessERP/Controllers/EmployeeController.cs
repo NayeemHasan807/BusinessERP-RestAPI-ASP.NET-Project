@@ -36,6 +36,7 @@ namespace BusinessERP.Controllers
                 return StatusCode(HttpStatusCode.NoContent);
             
         }
+
         //Search By Name
         [Route("search"),HttpGet,BasicAuthentication]
         public IHttpActionResult Index(string searchkey)
@@ -54,13 +55,14 @@ namespace BusinessERP.Controllers
                 return StatusCode(HttpStatusCode.NoContent);
             
         }
+
         //Get All Job Category List
         [Route("jobcategorylist"), HttpGet, BasicAuthentication]
         public IHttpActionResult JobCategoryList()
         {
             return Ok(jobcatrepo.GetAll());
-
         }
+
         //Advanced search on employee list
         [Route("advancedsearch"),HttpGet,BasicAuthentication]
         public IHttpActionResult AdvancedSearch(string searchkey,string order,int category)
@@ -74,6 +76,7 @@ namespace BusinessERP.Controllers
                 return StatusCode(HttpStatusCode.NoContent);
             
         }
+
         //Create new employee
         [Route(""),HttpPost,BasicAuthentication]
         public IHttpActionResult Create(Employee employee)
@@ -95,6 +98,7 @@ namespace BusinessERP.Controllers
                     
             return BadRequest(ModelState);
         }
+
         //Add profile picture when creating or editing any employee
         [Route("{id}/addprofilepicture"),HttpPost,BasicAuthentication]
         public async Task<IHttpActionResult> AddProfilePicture(int id)
@@ -119,6 +123,7 @@ namespace BusinessERP.Controllers
             }
             return StatusCode(HttpStatusCode.BadRequest);
         }
+
         //Get indivisual employee details
         [Route("{id}"),HttpGet]
         public IHttpActionResult Details(int id)
@@ -132,6 +137,7 @@ namespace BusinessERP.Controllers
             else
                 return StatusCode(HttpStatusCode.NoContent);
         }
+
         //Delete an existing employee
         [Route("{id}"),HttpDelete,BasicAuthentication]
         public IHttpActionResult RemoveEmployee(int id)
@@ -141,6 +147,7 @@ namespace BusinessERP.Controllers
             employeerepo.Delete(id);
             return StatusCode(HttpStatusCode.NoContent);
         }
+
         //Edit an existing employee
         [Route("{id}"),HttpPut,BasicAuthentication]
         public IHttpActionResult EditEmployee(int id, Employee employee)
