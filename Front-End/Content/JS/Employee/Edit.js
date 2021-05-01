@@ -104,6 +104,7 @@ $(document).ready(function () {
         var JobId = document.getElementById("JobId").value;
         var h=false;
         var Image = document.getElementById("Image").value;
+        var ImageError = document.getElementById("ImageError").value;
         var i=false;
         if( EmployeeName != "")
         {

@@ -21,12 +21,9 @@ namespace BusinessERP.Models.ViewModels
         public System.DateTime DateOfBirth { get; set; }
         [Required]
         public string Address { get; set; }
-        [Required]
         public System.DateTime JoiningDate { get; set; }
         public string ProfilePicture { get; set; }
-        [Required]
         public string Status { get; set; }
-        [Required]
         public int JobId { get; set; }
     }
 }
