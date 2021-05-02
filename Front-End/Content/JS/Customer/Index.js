@@ -1,4 +1,13 @@
 $(document).ready(function () {
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var Conformation = url.searchParams.get("Conformation");
+    console.log(Conformation);
+    if(Conformation=="SuppReqSent")
+    {
+        $("#Conformation").html("<div class='alert alert-primary'>Your request is send to support. We will contact with you via mail within 24hours</div>");
+    }
+    
     $.ajax({
         type: "GET",
         url: "http://localhost:51045/api/customers",

@@ -4,14 +4,14 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>Dashboard</title>
+    <title>SupportRequest</title>
     <link rel="stylesheet" href="../../Content/CSS/ProductListView.css" />
     <link rel="stylesheet" href="../../Content/CSS/VerticalNavBarStyle.css" />
     <link rel="stylesheet" href="../../Content/CSS/Style.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
     <script type="text/javascript" src="../../Content/JS/jquery-3.5.1.js"></script>
     <script type="text/javascript" src="../../Content/JS/Customer/CustomerCheck.js"></script>
-    <script type="text/javascript" src="../../Content/JS/Customer/Index.js"></script>
+    <script type="text/javascript" src="../../Content/JS/Customer/SupportRequest.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js" integrity="sha512-Meww2sXqNHxI1+5Dyh/9KAtvI9RZSA4c1K2k5iL02oiPO/RH3Q30L3M1albtqMg50u4gRTYdV4EXOQqXEI336A==" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -37,17 +37,29 @@
         </nav>
     </div>
     <div id="workspace">
-        <h2>Welcome</h1>
-        <link href="../../Content/CSS/bootstrap.css" rel="stylesheet" />
-        <link href="../../Content/CSS/Alert.css" rel="stylesheet" />
+        <h2>Request To Support</h2>
         <br />
-        <h3 id="customername"></h3>
-        <h3></h3>
-        <br />
-        <img src="#" id="ProfilePicture" alt="Avater" width="150" height="150"/>
-        <br />
-        <br />
-        <div id="Conformation"></div>
+        <form>
+            Request Subject:<br />
+            <input type="text" id="RequestSubject" name="RequestSubject"><br />
+            <div>
+                <span style="color:red;background-color:white" id="RequestSubjectError"></span>
+            </div>
+            Request Body:<br />
+            <textarea rows="5" cols="80" id="RequestBody" name="RequestBody"></textarea><br />
+            <div>
+                <span style="color:red;background-color:white" id="RequestBodyError"></span>
+            </div>
+            <input type="button" id="Send" value="Send">
+            <input type="reset" id="Reset">
+            <a href="Index.html">
+                <button type="button">
+                    Back
+                </button>
+            </a>
+            <div></div>
+        </form> 
+        <div id="msg"></div>
     </div>
     <br>
 </body>

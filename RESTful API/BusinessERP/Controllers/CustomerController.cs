@@ -33,5 +33,30 @@ namespace BusinessERP.Controllers
                 return StatusCode(HttpStatusCode.NoContent);
             
         }
+        //Get all notice for customer
+        [Route("notice"),HttpGet,BasicAuthentication]
+        public IHttpActionResult ViewNotice()
+        {
+            var notices = noticerepo.GetAllForCustomer();
+            if (notices.Count > 0)
+            {
+                return Ok(noticerepo.AddLinksForCustomer(notices));
+            }
+            else
+                return StatusCode(HttpStatusCode.NoContent);
+            
+        }
+        [Route("supportrequest"),HttpPost,BasicAuthentication]
+        public IHttpActionResult SupportRequest(RequestToSupport request)
+        {
+            
+                if (ModelState.IsValid)
+                {
+                    rtsrepo.Insert(request);
+                    return Created("http://localhost:51045/api/supports/viewsupportrequest",request);
+                }
+                else
+                    return BadRequest(ModelState);
+        }
     }
 }
