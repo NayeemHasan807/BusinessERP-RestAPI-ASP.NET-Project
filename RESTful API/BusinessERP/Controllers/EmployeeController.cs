@@ -125,7 +125,7 @@ namespace BusinessERP.Controllers
         }
 
         //Get indivisual employee details
-        [Route("{id}"),HttpGet]
+        [Route("{id}"),HttpGet,BasicAuthentication]
         public IHttpActionResult Details(int id)
         {
             var employee = employeerepo.AddLink(employeerepo.GetById(id));

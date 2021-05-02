@@ -9,6 +9,21 @@ namespace BusinessERP.Repositories
 {
     public class CustomerRepository : Repository<Customer>
     {
+        public Customer AddLinkForCustomer(Customer customer)
+        {
+            customer.Links.Add(new Link() { Url = "http://localhost:51045//api/customers", Method = "GET", Relation = "Details of an existing customer resource" });
+            return customer;
+        }
+
+        public List<Customer> AddLinksForCustomer(List<Customer> customers)
+        {
+            foreach (var item in customers)
+            {
+                item.Links.Add(new Link() { Url = "http://localhost:51045//api/customers", Method = "GET", Relation = "Details of an existing Employee resource" });
+            }
+            return customers;
+        }
+
         public Customer GetByUserName(string username)
         {
             return context.Customers.Where(x => x.UserName == username).FirstOrDefault();

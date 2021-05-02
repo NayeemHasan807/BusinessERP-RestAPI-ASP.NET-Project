@@ -12,12 +12,12 @@ $(document).ready(function () {
             if(xmlHttp.status=200)
             {
                 var data = xmlHttp.responseJSON;
-                $("#HName").html(data.profileview.name);
-                var image=document.getElementById("ProfilePicture")
-                image.src ="http://localhost:51045/"+data.profileview.profilePicture;
                 console.log(data);
                 if(UserType!="Customer" & UserType!="Vendor")
                 {
+                    $("#HName").html(data.profileview.name);
+                    var image=document.getElementById("ProfilePicture");
+                    image.src ="http://localhost:51045/"+data.profileview.profilePicture;
                     str=`<tr>
                             <td>Name:</td>
                             <td>`+data.profileview.name+`</td>
@@ -58,33 +58,36 @@ $(document).ready(function () {
                 }
                 else
                 {
+                    $("#HName").html(data.name);
+                    var image=document.getElementById("ProfilePicture");
+                    image.src ="http://localhost:51045/"+data.profilePicture;
                     str=`<tr>
                             <td>Name:</td>
-                            <td>`+data.profileview.name+`</td>
+                            <td>`+data.name+`</td>
                         </tr>
                         <tr>
                             <td>Username :</td>
-                            <td>`+data.profileview.userName+`</td>
+                            <td>`+data.userName+`</td>
                         </tr>
                         <tr>
                             <td>Email :</td>
-                            <td>`+data.profileview.email+`</td>
+                            <td>`+data.email+`</td>
                         </tr>
                         <tr>
                             <td>Gender :</td>
-                            <td>`+data.profileview.gender+`</td>
+                            <td>`+data.gender+`</td>
                         </tr>
                         <tr>
                             <td>Date Of Birth :</td>
-                            <td>`+data.profileview.dateOfBirth+`</td>
+                            <td>`+data.dateOfBirth+`</td>
                         </tr>
                         <tr>
                             <td>Address :</td>
-                            <td>`+data.profileview.address+`</td>
+                            <td>`+data.address+`</td>
                         </tr>
                         <tr>
                             <td>Profile Status :</td>
-                            <td>`+data.profileview.status+`</td>
+                            <td>`+data.status+`</td>
                         </tr>`;
                         $("#view").html(str);   
                 }

@@ -28,5 +28,11 @@ namespace BusinessERP.Models
         public string ProfilePicture { get; set; }
         [Required, Column(TypeName = "varchar"), StringLength(50)]
         public string Status { get; set; }
+        List<Link> links = new List<Link>();
+        [NotMapped]
+        public List<Link> Links
+        {
+            get { return links; }
+        }
     }
 }

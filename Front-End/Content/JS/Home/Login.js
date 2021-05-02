@@ -22,6 +22,20 @@ $(document).ready(function () {
                     {
                         window.location.replace("http://127.0.0.1:5500/Views/Admin/Index.html");
                     }
+                    else if(Cookies.get("UserType")=="Customer")
+                    {
+                        Cookies.set("UserStatus",data.userStatus)
+                        if(data.userStatus=="Active")
+                        {
+                            window.location.replace("http://127.0.0.1:5500/Views/Customer/Index.html");
+                        }
+                        else
+                        {
+                            $("#msg").html(`<br />
+                            <a href="/Home/ContactWithSupportForUnblock.html" style="color:cyan;">Contact with support</a>
+                            <br/>`);
+                        }
+                    }
                     else
                     {
                         $("#msg").html("Currently you are not allowed to login");

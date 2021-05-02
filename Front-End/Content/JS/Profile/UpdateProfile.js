@@ -16,10 +16,10 @@ $(document).ready(function () {
             if(xmlHttp.status=200)
             {
                 var data = xmlHttp.responseJSON;
-                $("#HName").html(data.profileview.name);
                 //console.log(data);
                 if(UserType!="Customer" & UserType!="Vendor")
                 {
+                    $("#HName").html(data.profileview.name);
                     //console.log(data);
                     ProfilePicture = data.profileview.profilePicture;
                     document.getElementById("Name").value=data.profileview.name;
@@ -62,17 +62,18 @@ $(document).ready(function () {
                 }
                 else
                 {
+                    $("#HName").html(data.name);
                     //console.log(data);
-                    ProfilePicture = data.profileview.profilePicture;
-                    document.getElementById("Name").value=data.profileview.Name;
-                    document.getElementById("UserName").value=data.profileview.userName;
-                    document.getElementById("Email").value=data.profileview.email;
-                    var dob= data.profileview.dateOfBirth.split("T");
+                    ProfilePicture = data.profilePicture;
+                    document.getElementById("Name").value=data.name;
+                    document.getElementById("UserName").value=data.userName;
+                    document.getElementById("Email").value=data.email;
+                    var dob= data.dateOfBirth.split("T");
                     //console.log(dob[0]);
                     $("#DateOfBirth").val(dob[0]);
-                    document.getElementById("Address").value=data.profileview.address;
-                    document.getElementById("Status").value=data.profileview.status;
-                    var Gender=data.profileview.gender;
+                    document.getElementById("Address").value=data.address;
+                    document.getElementById("Status").value=data.status;
+                    var Gender=data.gender;
                     if(Gender=="Male")
                     {
                         $("#Male").prop('checked', true);
@@ -91,7 +92,7 @@ $(document).ready(function () {
             else
             {
                 var html=`<div class="alert alert-primary">
-                            <p>No employee of id `+EmployeeId+`</p>
+                            <p>No data found</p>
                         </div>`;
                 $("#workspace").html();
             }
