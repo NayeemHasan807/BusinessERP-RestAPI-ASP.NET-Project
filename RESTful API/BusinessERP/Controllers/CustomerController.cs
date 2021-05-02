@@ -50,13 +50,13 @@ namespace BusinessERP.Controllers
         public IHttpActionResult SupportRequest(RequestToSupport request)
         {
             
-                if (ModelState.IsValid)
-                {
-                    rtsrepo.Insert(request);
-                    return Created("http://localhost:51045/api/supports/viewsupportrequest",request);
-                }
-                else
-                    return BadRequest(ModelState);
+            if (ModelState.IsValid)
+            {
+                rtsrepo.Insert(request);
+                return Created("http://localhost:51045/api/supports/viewsupportrequest",request);
+            }
+            else
+                return BadRequest(ModelState);
         }
     }
 }

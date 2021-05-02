@@ -32,7 +32,7 @@ $(document).ready(function () {
                         else
                         {
                             $("#msg").html(`<br />
-                            <a href="/Home/ContactWithSupportForUnblock.html" style="color:cyan;">Contact with support</a>
+                            <a href="ContactWithSupportForUnblock.html" style="color:cyan;">Contact with support</a>
                             <br/>`);
                         }
                     }

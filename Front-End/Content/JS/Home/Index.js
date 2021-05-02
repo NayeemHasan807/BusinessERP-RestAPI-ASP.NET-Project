@@ -7,4 +7,8 @@ $(document).ready(function () {
     {
         $("#Conformation").html(`<div class="alert alert-primary" style="text-align: center">Your registration request submited successfully. We will verify your information soon and will give you confirmation</div>`);
     }
+    else if(Conformation=="SuppReqSent")
+    {
+        $("#Conformation").html(`<div class="alert alert-primary" style="text-align: center">Your request is send to support. We will contact with you via mail within 24hours</div>`);
+    }
 });

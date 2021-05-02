@@ -2,33 +2,17 @@ $(document).ready(function () {
     $("#Send").click(function () {
         var SenderUserName = Cookies.get("UserName");
         var UserType = Cookies.get("UserType");
-        var RequestSubjectError = $("#RequestSubjectError");
         var RequestSubject = $("#RequestSubject").val();
-        var a=false;
+        console.log(RequestSubject)
         var RequestBodyError = $("#RequestBodyError");
         var RequestBody = $("#RequestBody").val();
-        var b=false;
+        var a=false;
         var msg= $("#msg");
-        if( RequestSubject != "")
-        {
-            if(RequestSubject.length>=5 & RequestSubject.length<=100)
-            {
-                a=true;
-            }
-            else
-            {
-                RequestSubjectError.html("Input text length must need to be 10-30");
-            }
-        }
-        else
-        {
-            RequestSubjectError.html("Can not be empty");
-        }
         if( RequestBody != "")
         {
             if(RequestBody.length>=10 & RequestBody.length<=500)
             {
-                b=true;
+                a=true;
             }
             else
             {
@@ -39,7 +23,7 @@ $(document).ready(function () {
         {
             RequestBodyError.html("Can not be empty");
         }
-        if(a==true & b==true)
+        if(a==true)
         {
             $.ajax({
                 type: "POST",
@@ -57,7 +41,7 @@ $(document).ready(function () {
                 complete:function(xmlHttp,status){
                     if(xmlHttp.status==201)
                     {
-                        window.location.replace("http://127.0.0.1:5500/Views/Customer/Index.html?Conformation=SuppReqSent");
+                        window.location.replace("http://127.0.0.1:5500/Views/Home/Index.html?Conformation=SuppReqSent");
                     }
                     else
                     {
@@ -70,9 +54,6 @@ $(document).ready(function () {
         {
             $("#msg").html("Some problem occured. Please try again");
         }
-    });
-    $("#RequestSubject").click(function () {
-        RequestSubjectError.innerHTML="";
     });
     $("#RequestBody").click(function () {
         RequestBodyError.innerHTML="";
