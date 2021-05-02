@@ -3,9 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>Home</title>
+    <title>Registration</title>
     <link rel="stylesheet" href="../../Content/CSS/HorizontalNavBarStyle.css" />
     <link rel="stylesheet" href="../../Content/CSS/DivBackground.css" />
+    <script type="text/javascript" src="../../Content/JS/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="../../Content/JS/Home/Registration.js"></script>
     <link rel="stylesheet" href="../../Content/CSS/Button.css" />
   </head>
   <body>
@@ -28,89 +30,89 @@
       <h1 align="center" style="color: red">Registration</h1>
       <br />
       <div align="center">
-        <form method="post" enctype="multipart/form-data">
+        <form enctype="multipart/form-data">
           <table align="center" id="view">
             <tr>
               <td>Name:</td>
               <td>
-                <input type="text" name="Name" />
-                <span style="color: red; background-color: white"> </span>
+                <input type="text" id="Name" name="Name"/>
+                <span style="color: red; background-color: white" id="NameError"></span>
               </td>
             </tr>
             <tr>
               <td>User Name :</td>
               <td>
-                <input type="text" name="UserName" />
-                <span style="color: red; background-color: white"> </span>
+                <input type="text" id="UserName" name="UserName" />
+                <span style="color: red; background-color: white" id="UserNameError"></span>
               </td>
             </tr>
             <tr>
               <td>Password :</td>
               <td>
-                <input type="password" name="Password" />
-                <span style="color: red; background-color: white"> </span>
+                <input type="password" id="Password" name="Password" />
+                <span style="color: red; background-color: white" id="PasswordError" > </span>
               </td>
             </tr>
             <tr>
               <td>Confirm Password :</td>
               <td>
-                <input type="password" name="CPassword" />
-                <span style="color: red; background-color: white"> </span>
+                <input type="password" id="CPassword" name="CPassword" />
+                <span style="color: red; background-color: white" id="CPasswordError"> </span>
               </td>
             </tr>
             <tr>
               <td>Email :</td>
               <td>
-                <input type="text" name="Email" />
-                <span style="color: red; background-color: white"> </span>
+                <input type="text" id="Email" name="Email" />
+                <span style="color: red; background-color: white" id="EmailError"> </span>
               </td>
             </tr>
             <tr>
               <td>Gender :</td>
               <td>
-                <input type="radio" name="Gender" value="Male" /> Male
-                <input type="radio" name="Gender" value="Female" /> Female
-                <input type="radio" name="Gender" value="Other" /> Other
+                <input type="radio" name="Gender" id="Male" value="Male" /> Male
+                <input type="radio" name="Gender" id="Female" value="Female" /> Female
+                <input type="radio" name="Gender" id="Other" value="Other" /> Other
                 <br />
-                <span style="color: red; background-color: white"> </span>
+                <span style="color: red; background-color: white" id="GenderError"> </span>
               </td>
             </tr>
             <tr>
               <td>Date Of Birth :</td>
               <td>
-                <input type="date" name="DateOfBirth" />
-                <span style="color: red; background-color: white"> </span>
+                <input type="date" id="DateOfBirth" name="DateOfBirth" />
+                <span style="color: red; background-color: white" id="DateOfBirthError"> </span>
               </td>
             </tr>
             <tr>
               <td>Address :</td>
               <td>
-                <input type="text" name="Address" />
-                <span style="color: red; background-color: white"> </span>
+                <input type="text" id="Address" name="Address" />
+                <span style="color: red; background-color: white" id="AddressError"> </span>
               </td>
             </tr>
             <tr>
               <td>Profile Picture :</td>
               <td>
-                <input type="file" name="Image" />
-                <span style="color: red; background-color: white"> </span>
+                <input type="file" id="Image" name="Image" />
+                <span style="color: red; background-color: white" id="ImageError"> </span>
               </td>
             </tr>
             <tr>
               <td>UserType :</td>
               <td>
-                <select name="UserType">
+                <select id="UserType" name="UserType">
                   <option value="">None</option>
                   <option value="Customer">Customer</option>
                   <option value="Vendor">Vendor</option>
                 </select>
-                <span style="color: red; background-color: white"> </span>
+                <span style="color: red; background-color: white" id="UserTypeError"> </span>
               </td>
             </tr>
             <tr>
               <td colspan="3">
-                <input type="submit" value="Submit" />
-                <input type="reset" />
+                <input type="button" id="Submit" value="Submit" />
+                <input type="reset" id="Reset"/>
                 <a href="Index.html">
                   <button type="button">Back</button>
                 </a>
@@ -120,6 +122,7 @@
         </form>
       </div>
     </div>
+    <div id="msg"></div>
     <footer style="background-color: black">
       <span style="color: white">
         &copy; My ASP.NET MVC Application Alpha Enterprice Ltd.

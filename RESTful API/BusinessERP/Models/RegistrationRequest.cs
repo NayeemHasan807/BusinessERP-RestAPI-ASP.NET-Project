@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -26,5 +27,7 @@ namespace BusinessERP.Models
         public string ProfilePicture { get; set; }
         [Required]
         public string UserType { get; set; }
+        [NotMapped]
+        public string CPassword { get; set; }
     }
 }
