@@ -1,10 +1,11 @@
 ﻿$(document).ready(function () {
     $.ajax({
-        type: "Post",
-        url: "/Customer/ProductPerchesBarChart",
-        data: {},
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
+        type: "GET",
+        url: "http://localhost:51045/api/customers/"+Cookies.get("UserName")+"/productperchesreport",
+        headers:"Content-Type:application/json",
+        headers:{
+            "Authorization":"basic "+Cookies.get("Authenticatior")
+        },
         success: function (response) {
             successFunc(response);
         }
@@ -12,14 +13,14 @@
 
     function successFunc(jsondata) {
         var ctx = document.getElementById('myChart').getContext('2d');
-        console.log(jsondata.value);
+        console.log(jsondata);
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: jsondata['ProductName'],
+                labels: jsondata['productName'],
                 datasets: [{
                     label: 'Perches Quantity',
-                    data: jsondata['PerchesQuantity'],
+                    data: jsondata['perchesQuantity'],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',

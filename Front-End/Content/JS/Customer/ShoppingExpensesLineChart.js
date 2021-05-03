@@ -1,10 +1,11 @@
 ﻿$(document).ready(function () {
     $.ajax({
-        type: "Post",
-        url: "/Customer/ShoppingExpensesLineChart",
-        data: {},
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
+        type: "GET",
+        url: "http://localhost:51045/api/customers/"+Cookies.get("UserName")+"/shoppingexpensesreport",
+        headers:"Content-Type:application/json",
+        headers:{
+            "Authorization":"basic "+Cookies.get("Authenticatior")
+        },
         success: function (response) {
             successFunc(response);
         }
@@ -12,7 +13,7 @@
 
     function successFunc(jsondata) {
         var ctx = document.getElementById('myChart').getContext('2d');
-        console.log(jsondata.value);
+        console.log(jsondata);
         var myChart = new Chart(ctx, {
             type: 'line',
             data: {

@@ -22,5 +22,11 @@ namespace BusinessERP.Models
         public int CategoryId { get; set; }
         [JsonIgnore, XmlIgnore]
         public virtual CompanyProductCategory CompanyProductCategory { get; set; }
+        List<Link> links = new List<Link>();
+        [NotMapped]
+        public List<Link> Links
+        {
+            get { return links; }
+        }
     }
 }
