@@ -1,4 +1,17 @@
 $(document).ready(function () {
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var Suggest = url.searchParams.get("Suggest")
+    console.log(Suggest);
+    if(Suggest=="Yes")
+    {
+        $("#msg").html(`<br />
+                        "You have to login first to view product details or purchase from our site. If you are not a member then register now!"
+                        <br/>
+                        <a href="Registration.html" style="color:cyan;">Go To Registration</a>
+                        `);
+    }
+
     $("#Login").click(function () {
         var value= $("#UserName").val()+":"+$("#Password").val();
         console.log(value);
@@ -45,8 +58,7 @@ $(document).ready(function () {
                 {
                     $("#msg").html(xmlHttp.status+":"+xmlHttp.statusText);
                 }
-            }
-                
-            });
+            } 
         });
+    });
 });

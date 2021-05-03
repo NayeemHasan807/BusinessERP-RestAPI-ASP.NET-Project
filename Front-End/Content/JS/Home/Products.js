@@ -1,11 +1,8 @@
 $(document).ready(function () {
     $.ajax({
         type: "GET",
-        url: "http://localhost:51045/api/companyproducts/bestselling",
+        url: "http://localhost:51045/api/companyproducts/preview",
         headers:"Content-Type:application/json",
-        headers:{
-            "Authorization":"basic "+Cookies.get("Authenticatior")
-        },
         complete:function(xmlHttp,status){
             if(xmlHttp.status==200)
             {
@@ -54,7 +51,7 @@ $(document).ready(function () {
                                         <p class="body">
                                             `+a.longDescription+`<br />
                                         </p>
-                                        <p><a href="ViewProduct.html?Back=BestSelling&ProductId=`+a.productId+`"><button>View</button></a></p>
+                                        <p><a href="ViewProduct.html?ProductId=`+a.productId+`"><button>View Product</button></a></p>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -66,7 +63,7 @@ $(document).ready(function () {
                                         <p class="body">
                                             `+b.longDescription+`<br />
                                         </p>
-                                        <p><a href="ViewProduct.html?Back=BestSelling&ProductId=`+b.productId+`"><button>View</button></a></p>
+                                        <p><a href="ViewProduct.html?ProductId=`+a.productId+`"><button>View Product</button></a></p>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -78,7 +75,7 @@ $(document).ready(function () {
                                         <p class="body">
                                             `+c.longDescription+`<br />
                                         </p>
-                                        <p><a href="ViewProduct.html?Back=BestSelling&ProductId=`+c.productId+`"><button>View</button></a></p>
+                                        <p><a href="ViewProduct.html?ProductId=`+a.productId+`"><button>View Product</button></a></p>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -90,7 +87,7 @@ $(document).ready(function () {
                                         <p class="body">
                                             `+d.longDescription+`<br />
                                         </p>
-                                        <p><a href="ViewProduct.html?Back=BestSelling&ProductId=`+d.productId+`"><button>View</button></a></p>
+                                        <p><a href="ViewProduct.html?ProductId=`+a.productId+`"><button>View Product</button></a></p>
                                     </div>
                                 </div>
                             </div>
@@ -114,7 +111,7 @@ $(document).ready(function () {
                                         <p class="body">
                                             `+a.longDescription+`<br />
                                         </p>
-                                        <p><a href="ViewProduct.html?Back=BestSelling&ProductId=`+a.productId+`"><button>View</button></a></p>
+                                        <p><a href="ViewProduct.html?ProductId=`+a.productId+`"><button>View Product</button></a></p>
                                     </div>
                                 </div>
                             </div>`;
@@ -133,7 +130,7 @@ $(document).ready(function () {
                                         <p class="body">
                                             `+a.longDescription+`<br />
                                         </p>
-                                        <p><a href="ViewProduct.html?Back=BestSelling&ProductId=`+a.productId+`"><button>View</button></a></p>
+                                        <p><a href="ViewProduct.html?ProductId=`+a.productId+`"><button>View Product</button></a></p>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -145,7 +142,7 @@ $(document).ready(function () {
                                         <p class="body">
                                             `+b.longDescription+`<br />
                                         </p>
-                                        <p><a href="ViewProduct.html?Back=BestSelling&ProductId=`+b.productId+`"><button>View</button></a></p>
+                                        <p><a href="ViewProduct.html?ProductId=`+a.productId+`"><button>View Product</button></a></p>
                                     </div>
                                 </div>
                             </div>`;
@@ -165,7 +162,7 @@ $(document).ready(function () {
                                         <p class="body">
                                             `+a.longDescription+`<br />
                                         </p>
-                                        <p><a href="ViewProduct.html?Back=BestSelling&ProductId=`+a.productId+`"><button>View</button></a></p>
+                                        <p><a href="ViewProduct.html?ProductId=`+a.productId+`"><button>View Product</button></a></p>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -177,7 +174,7 @@ $(document).ready(function () {
                                         <p class="body">
                                             `+b.longDescription+`<br />
                                         </p>
-                                        <p><a href="ViewProduct.html?Back=BestSelling&ProductId=`+b.productId+`"><button>View</button></a></p>
+                                        <p><a href="ViewProduct.html?ProductId=`+a.productId+`"><button>View Product</button></a></p>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -189,7 +186,7 @@ $(document).ready(function () {
                                         <p class="body">
                                             `+c.longDescription+`<br />
                                         </p>
-                                        <p><a href="ViewProduct.html?Back=BestSelling&ProductId=`+c.productId+`"><button>View</button></a></p>
+                                        <p><a href="ViewProduct.html?ProductId=`+a.productId+`"><button>View Product</button></a></p>
                                     </div>
                                 </div>
                             </div>`;
@@ -203,7 +200,7 @@ $(document).ready(function () {
             }
             else if(xmlHttp.status==204){
                 var html=`<div class="alert alert-primary">
-                            <p>No low stock products in the inventory</p>
+                            <p>No product is available</p>
                         </div>`;
                 $("#show").html(html);
             }

@@ -54,7 +54,7 @@ $(document).ready(function () {
                                         <p class="body">
                                             `+a.longDescription+`<br />
                                         </p>
-                                        <p><a href="ViewProduct.html?ProductId=`+a.productId+`"><button>View</button></a></p>
+                                        <p><a href="ViewProduct.html?Back=Index&ProductId=`+a.productId+`"><button>View</button></a></p>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -66,7 +66,7 @@ $(document).ready(function () {
                                         <p class="body">
                                             `+b.longDescription+`<br />
                                         </p>
-                                        <p><a href="ViewProduct.html?ProductId=`+b.productId+`"><button>View</button></a></p>
+                                        <p><a href="ViewProduct.html?Back=Index&ProductId=`+b.productId+`"><button>View</button></a></p>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -78,7 +78,7 @@ $(document).ready(function () {
                                         <p class="body">
                                             `+c.longDescription+`<br />
                                         </p>
-                                        <p><a href="ViewProduct.html?ProductId=`+c.productId+`"><button>View</button></a></p>
+                                        <p><a href="ViewProduct.html?Back=Index&ProductId=`+c.productId+`"><button>View</button></a></p>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -90,7 +90,7 @@ $(document).ready(function () {
                                         <p class="body">
                                             `+d.longDescription+`<br />
                                         </p>
-                                        <p><a href="ViewProduct.html?ProductId=`+d.productId+`"><button>View</button></a></p>
+                                        <p><a href="ViewProduct.html?Back=Index&ProductId=`+d.productId+`"><button>View</button></a></p>
                                     </div>
                                 </div>
                             </div>
@@ -114,7 +114,7 @@ $(document).ready(function () {
                                         <p class="body">
                                             `+a.longDescription+`<br />
                                         </p>
-                                        <p><a href="ViewProduct.html?ProductId=`+a.productId+`"><button>View</button></a></p>
+                                        <p><a href="ViewProduct.html?Back=Index&ProductId=`+a.productId+`"><button>View</button></a></p>
                                     </div>
                                 </div>
                             </div>`;
@@ -133,7 +133,7 @@ $(document).ready(function () {
                                         <p class="body">
                                             `+a.longDescription+`<br />
                                         </p>
-                                        <p><a href="ViewProduct.html?ProductId=`+a.productId+`"><button>View</button></a></p>
+                                        <p><a href="ViewProduct.html?Back=Index&ProductId=`+a.productId+`"><button>View</button></a></p>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -145,7 +145,7 @@ $(document).ready(function () {
                                         <p class="body">
                                             `+b.longDescription+`<br />
                                         </p>
-                                        <p><a href="ViewProduct.html?ProductId=`+b.productId+`"><button>View</button></a></p>
+                                        <p><a href="ViewProduct.html?Back=Index&ProductId=`+b.productId+`"><button>View</button></a></p>
                                     </div>
                                 </div>
                             </div>`;
@@ -165,7 +165,7 @@ $(document).ready(function () {
                                         <p class="body">
                                             `+a.longDescription+`<br />
                                         </p>
-                                        <p><a href="ViewProduct.html?ProductId=`+a.productId+`"><button>View</button></a></p>
+                                        <p><a href="ViewProduct.html?Back=Index&ProductId=`+a.productId+`"><button>View</button></a></p>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -177,7 +177,7 @@ $(document).ready(function () {
                                         <p class="body">
                                             `+b.longDescription+`<br />
                                         </p>
-                                        <p><a href="ViewProduct.html?ProductId=`+b.productId+`"><button>View</button></a></p>
+                                        <p><a href="ViewProduct.html?Back=Index&ProductId=`+b.productId+`"><button>View</button></a></p>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -189,7 +189,7 @@ $(document).ready(function () {
                                         <p class="body">
                                             `+c.longDescription+`<br />
                                         </p>
-                                        <p><a href="ViewProduct.html?ProductId=`+c.productId+`"><button>View</button></a></p>
+                                        <p><a href="ViewProduct.html?Back=Index&ProductId=`+c.productId+`"><button>View</button></a></p>
                                     </div>
                                 </div>
                             </div>`;
@@ -273,7 +273,7 @@ $(document).ready(function () {
                                             <p class="body">
                                                 `+a.longDescription+`<br />
                                             </p>
-                                            <p><a href="ViewProduct.html?ProductId=`+a.productId+`"><button>View</button></a></p>
+                                            <p><a href="ViewProduct.html?Back=Index&ProductId=`+a.productId+`"><button>View</button></a></p>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
@@ -285,7 +285,7 @@ $(document).ready(function () {
                                             <p class="body">
                                                 `+b.longDescription+`<br />
                                             </p>
-                                            <p><a href="ViewProduct.html?ProductId=`+b.productId+`"><button>View</button></a></p>
+                                            <p><a href="ViewProduct.html?Back=Index&ProductId=`+b.productId+`"><button>View</button></a></p>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
@@ -297,7 +297,7 @@ $(document).ready(function () {
                                             <p class="body">
                                                 `+c.longDescription+`<br />
                                             </p>
-                                            <p><a href="ViewProduct.html?ProductId=`+c.productId+`"><button>View</button></a></p>
+                                            <p><a href="ViewProduct.html?Back=Index&ProductId=`+c.productId+`"><button>View</button></a></p>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
@@ -309,7 +309,7 @@ $(document).ready(function () {
                                             <p class="body">
                                                 `+d.longDescription+`<br />
                                             </p>
-                                            <p><a href="ViewProduct.html?ProductId=`+d.productId+`"><button>View</button></a></p>
+                                            <p><a href="ViewProduct.html?Back=Index&ProductId=`+d.productId+`"><button>View</button></a></p>
                                         </div>
                                     </div>
                                 </div>
@@ -333,7 +333,7 @@ $(document).ready(function () {
                                             <p class="body">
                                                 `+a.longDescription+`<br />
                                             </p>
-                                            <p><a href="ViewProduct.html?ProductId=`+a.productId+`"><button>View</button></a></p>
+                                            <p><a href="ViewProduct.html?Back=Index&ProductId=`+a.productId+`"><button>View</button></a></p>
                                         </div>
                                     </div>
                                 </div>`;
@@ -352,7 +352,7 @@ $(document).ready(function () {
                                             <p class="body">
                                                 `+a.longDescription+`<br />
                                             </p>
-                                            <p><a href="ViewProduct.html?ProductId=`+a.productId+`"><button>View</button></a></p>
+                                            <p><a href="ViewProduct.html?Back=Index&ProductId=`+a.productId+`"><button>View</button></a></p>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
@@ -364,7 +364,7 @@ $(document).ready(function () {
                                             <p class="body">
                                                 `+b.longDescription+`<br />
                                             </p>
-                                            <p><a href="ViewProduct.html?ProductId=`+b.productId+`"><button>View</button></a></p>
+                                            <p><a href="ViewProduct.html?Back=Index&ProductId=`+b.productId+`"><button>View</button></a></p>
                                         </div>
                                     </div>
                                 </div>`;
@@ -384,7 +384,7 @@ $(document).ready(function () {
                                             <p class="body">
                                                 `+a.longDescription+`<br />
                                             </p>
-                                            <p><a href="ViewProduct.html?ProductId=`+a.productId+`"><button>View</button></a></p>
+                                            <p><a href="ViewProduct.html?Back=Index&ProductId=`+a.productId+`"><button>View</button></a></p>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
@@ -396,7 +396,7 @@ $(document).ready(function () {
                                             <p class="body">
                                                 `+b.longDescription+`<br />
                                             </p>
-                                            <p><a href="ViewProduct.html?ProductId=`+b.productId+`"><button>View</button></a></p>
+                                            <p><a href="ViewProduct.html?Back=Index&ProductId=`+b.productId+`"><button>View</button></a></p>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
@@ -408,7 +408,7 @@ $(document).ready(function () {
                                             <p class="body">
                                                 `+c.longDescription+`<br />
                                             </p>
-                                            <p><a href="ViewProduct.html?ProductId=`+c.productId+`"><button>View</button></a></p>
+                                            <p><a href="ViewProduct.html?Back=Index&ProductId=`+c.productId+`"><button>View</button></a></p>
                                         </div>
                                     </div>
                                 </div>`;

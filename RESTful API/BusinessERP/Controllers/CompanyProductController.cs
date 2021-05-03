@@ -28,7 +28,19 @@ namespace BusinessERP.Controllers
             }
             else
                 return StatusCode(HttpStatusCode.NoContent);
-            //Session["Place"] = "Index";
+        }
+
+        //Product view for visitors
+        [Route("preview"), HttpGet]
+        public IHttpActionResult preview()
+        {
+            var products = comprodrepo.GetAll();
+            if (products.Count > 0)
+            {
+                return Ok(comprodrepo.AddLinksForCustomer(products));
+            }
+            else
+                return StatusCode(HttpStatusCode.NoContent);
         }
 
         //To get best selling products
