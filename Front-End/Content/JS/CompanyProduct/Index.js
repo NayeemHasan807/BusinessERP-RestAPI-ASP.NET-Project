@@ -49,7 +49,7 @@ $(document).ready(function () {
                                     <div class="card">
                                         <img class="image" src="http://localhost:51045/`+a.productPicture+`" style="width:100%">
                                         <h4>`+a.productName+`</h4>
-                                        <p class="price"> `+a.unitPrice+`</p>
+                                        <p class="price">$`+a.unitPrice+`</p>
                                         <p class="quantity"> `+a.quantity+`</p>
                                         <p class="body">
                                             `+a.longDescription+`<br />
@@ -61,7 +61,7 @@ $(document).ready(function () {
                                     <div class="card">
                                         <img class="image" src="http://localhost:51045/`+b.productPicture+`" style="width:100%">
                                         <h4>`+b.productName+`</h4>
-                                        <p class="price"> `+b.unitPrice+`</p>
+                                        <p class="price">$`+b.unitPrice+`</p>
                                         <p class="quantity"> `+b.quantity+`</p>
                                         <p class="body">
                                             `+b.longDescription+`<br />
@@ -73,7 +73,7 @@ $(document).ready(function () {
                                     <div class="card">
                                         <img class="image" src="http://localhost:51045/`+c.productPicture+`" style="width:100%">
                                         <h4>`+c.productName+`</h4>
-                                        <p class="price"> `+c.unitPrice+`</p>
+                                        <p class="price">$`+c.unitPrice+`</p>
                                         <p class="quantity"> `+c.quantity+`</p>
                                         <p class="body">
                                             `+c.longDescription+`<br />
@@ -85,7 +85,7 @@ $(document).ready(function () {
                                     <div class="card">
                                         <img class="image" src="http://localhost:51045/`+d.productPicture+`" style="width:100%">
                                         <h4>`+d.productName+`</h4>
-                                        <p class="price"> `+d.unitPrice+`</p>
+                                        <p class="price">$`+d.unitPrice+`</p>
                                         <p class="quantity"> `+d.quantity+`</p>
                                         <p class="body">
                                             `+d.longDescription+`<br />
@@ -109,7 +109,7 @@ $(document).ready(function () {
                                     <div class="card">
                                         <img class="image" src="http://localhost:51045/`+a.productPicture+`" style="width:100%">
                                         <h4>`+a.productName+`</h4>
-                                        <p class="price"> `+a.unitPrice+`</p>
+                                        <p class="price">$`+a.unitPrice+`</p>
                                         <p class="quantity"> `+a.quantity+`</p>
                                         <p class="body">
                                             `+a.longDescription+`<br />
@@ -128,7 +128,7 @@ $(document).ready(function () {
                                     <div class="card">
                                         <img class="image" src="http://localhost:51045/`+a.productPicture+`" style="width:100%">
                                         <h4>`+a.productName+`</h4>
-                                        <p class="price"> `+a.unitPrice+`</p>
+                                        <p class="price">$`+a.unitPrice+`</p>
                                         <p class="quantity"> `+a.quantity+`</p>
                                         <p class="body">
                                             `+a.longDescription+`<br />
@@ -140,7 +140,7 @@ $(document).ready(function () {
                                     <div class="card">
                                         <img class="image" src="http://localhost:51045/`+b.productPicture+`" style="width:100%">
                                         <h4>`+b.productName+`</h4>
-                                        <p class="price"> `+b.unitPrice+`</p>
+                                        <p class="price">$`+b.unitPrice+`</p>
                                         <p class="quantity"> `+b.quantity+`</p>
                                         <p class="body">
                                             `+b.longDescription+`<br />
@@ -160,7 +160,7 @@ $(document).ready(function () {
                                     <div class="card">
                                         <img class="image" src="http://localhost:51045/`+a.productPicture+`" style="width:100%">
                                         <h4>`+a.productName+`</h4>
-                                        <p class="price"> `+a.unitPrice+`</p>
+                                        <p class="price">$`+a.unitPrice+`</p>
                                         <p class="quantity"> `+a.quantity+`</p>
                                         <p class="body">
                                             `+a.longDescription+`<br />
@@ -172,7 +172,7 @@ $(document).ready(function () {
                                     <div class="card">
                                         <img class="image" src="http://localhost:51045/`+b.productPicture+`" style="width:100%">
                                         <h4>`+b.productName+`</h4>
-                                        <p class="price"> `+b.unitPrice+`</p>
+                                        <p class="price">$`+b.unitPrice+`</p>
                                         <p class="quantity"> `+b.quantity+`</p>
                                         <p class="body">
                                             `+b.longDescription+`<br />
@@ -184,7 +184,7 @@ $(document).ready(function () {
                                     <div class="card">
                                         <img class="image" src="http://localhost:51045/`+c.productPicture+`" style="width:100%">
                                         <h4>`+c.productName+`</h4>
-                                        <p class="price"> `+c.unitPrice+`</p>
+                                        <p class="price">$`+c.unitPrice+`</p>
                                         <p class="quantity"> `+c.quantity+`</p>
                                         <p class="body">
                                             `+c.longDescription+`<br />
@@ -268,7 +268,7 @@ $(document).ready(function () {
                                         <div class="card">
                                             <img class="image" src="http://localhost:51045/`+a.productPicture+`" style="width:100%">
                                             <h4>`+a.productName+`</h4>
-                                            <p class="price"> `+a.unitPrice+`</p>
+                                            <p class="price">$`+a.unitPrice+`</p>
                                             <p class="quantity"> `+a.quantity+`</p>
                                             <p class="body">
                                                 `+a.longDescription+`<br />
@@ -280,7 +280,7 @@ $(document).ready(function () {
                                         <div class="card">
                                             <img class="image" src="http://localhost:51045/`+b.productPicture+`" style="width:100%">
                                             <h4>`+b.productName+`</h4>
-                                            <p class="price"> `+b.unitPrice+`</p>
+                                            <p class="price">$`+b.unitPrice+`</p>
                                             <p class="quantity"> `+b.quantity+`</p>
                                             <p class="body">
                                                 `+b.longDescription+`<br />
@@ -292,7 +292,7 @@ $(document).ready(function () {
                                         <div class="card">
                                             <img class="image" src="http://localhost:51045/`+c.productPicture+`" style="width:100%">
                                             <h4>`+c.productName+`</h4>
-                                            <p class="price"> `+c.unitPrice+`</p>
+                                            <p class="price">$`+c.unitPrice+`</p>
                                             <p class="quantity"> `+c.quantity+`</p>
                                             <p class="body">
                                                 `+c.longDescription+`<br />
@@ -304,7 +304,7 @@ $(document).ready(function () {
                                         <div class="card">
                                             <img class="image" src="http://localhost:51045/`+d.productPicture+`" style="width:100%">
                                             <h4>`+d.productName+`</h4>
-                                            <p class="price"> `+d.unitPrice+`</p>
+                                            <p class="price">$`+d.unitPrice+`</p>
                                             <p class="quantity"> `+d.quantity+`</p>
                                             <p class="body">
                                                 `+d.longDescription+`<br />
@@ -328,7 +328,7 @@ $(document).ready(function () {
                                         <div class="card">
                                             <img class="image" src="http://localhost:51045/`+a.productPicture+`" style="width:100%">
                                             <h4>`+a.productName+`</h4>
-                                            <p class="price"> `+a.unitPrice+`</p>
+                                            <p class="price">$`+a.unitPrice+`</p>
                                             <p class="quantity"> `+a.quantity+`</p>
                                             <p class="body">
                                                 `+a.longDescription+`<br />
@@ -347,7 +347,7 @@ $(document).ready(function () {
                                         <div class="card">
                                             <img class="image" src="http://localhost:51045/`+a.productPicture+`" style="width:100%">
                                             <h4>`+a.productName+`</h4>
-                                            <p class="price"> `+a.unitPrice+`</p>
+                                            <p class="price">$`+a.unitPrice+`</p>
                                             <p class="quantity"> `+a.quantity+`</p>
                                             <p class="body">
                                                 `+a.longDescription+`<br />
@@ -359,7 +359,7 @@ $(document).ready(function () {
                                         <div class="card">
                                             <img class="image" src="http://localhost:51045/`+b.productPicture+`" style="width:100%">
                                             <h4>`+b.productName+`</h4>
-                                            <p class="price"> `+b.unitPrice+`</p>
+                                            <p class="price">$`+b.unitPrice+`</p>
                                             <p class="quantity"> `+b.quantity+`</p>
                                             <p class="body">
                                                 `+b.longDescription+`<br />
@@ -379,7 +379,7 @@ $(document).ready(function () {
                                         <div class="card">
                                             <img class="image" src="http://localhost:51045/`+a.productPicture+`" style="width:100%">
                                             <h4>`+a.productName+`</h4>
-                                            <p class="price"> `+a.unitPrice+`</p>
+                                            <p class="price">$`+a.unitPrice+`</p>
                                             <p class="quantity"> `+a.quantity+`</p>
                                             <p class="body">
                                                 `+a.longDescription+`<br />
@@ -391,7 +391,7 @@ $(document).ready(function () {
                                         <div class="card">
                                             <img class="image" src="http://localhost:51045/`+b.productPicture+`" style="width:100%">
                                             <h4>`+b.productName+`</h4>
-                                            <p class="price"> `+b.unitPrice+`</p>
+                                            <p class="price">$`+b.unitPrice+`</p>
                                             <p class="quantity"> `+b.quantity+`</p>
                                             <p class="body">
                                                 `+b.longDescription+`<br />
@@ -403,7 +403,7 @@ $(document).ready(function () {
                                         <div class="card">
                                             <img class="image" src="http://localhost:51045/`+c.productPicture+`" style="width:100%">
                                             <h4>`+c.productName+`</h4>
-                                            <p class="price"> `+c.unitPrice+`</p>
+                                            <p class="price">$`+c.unitPrice+`</p>
                                             <p class="quantity"> `+c.quantity+`</p>
                                             <p class="body">
                                                 `+c.longDescription+`<br />

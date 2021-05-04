@@ -37,7 +37,9 @@ $(document).ready(function () {
                     }
                     else if(Cookies.get("UserType")=="Customer")
                     {
-                        Cookies.set("UserStatus",data.userStatus)
+                        Cookies.set("UserStatus",data.userStatus);
+                        Cookies.set("Cart","empty");
+                        Cookies.set("Count","0");
                         if(data.userStatus=="Active")
                         {
                             window.location.replace("http://127.0.0.1:5500/Views/Customer/Index.html");
@@ -45,7 +47,7 @@ $(document).ready(function () {
                         else
                         {
                             $("#msg").html(`<br />
-                            <a href="ContactWithSupportForUnblock.html" style="color:cyan;">Contact with support</a>
+                                <a href="ContactWithSupportForUnblock.html" style="color:cyan;">Contact with support</a>
                             <br/>`);
                         }
                     }

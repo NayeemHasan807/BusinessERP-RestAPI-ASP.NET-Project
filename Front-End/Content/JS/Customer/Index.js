@@ -7,6 +7,10 @@ $(document).ready(function () {
     {
         $("#Conformation").html("<div class='alert alert-primary'>Your request is send to support. We will contact with you via mail within 24hours</div>");
     }
+    else if(Conformation=="Checkout")
+    {
+        $("#Conformation").html("<div class='alert alert-primary'>Checkout is done successfully and we will send you conformation mail soon after verifying your information.</div>");
+    }
     
     $.ajax({
         type: "GET",

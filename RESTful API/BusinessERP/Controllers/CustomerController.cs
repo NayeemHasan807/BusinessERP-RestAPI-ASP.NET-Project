@@ -133,5 +133,43 @@ namespace BusinessERP.Controllers
                 }
                 return Ok(new { date, sales });
         }
+
+        //Checkout
+        [Route("checkout"),HttpPost,BasicAuthentication]
+        public IHttpActionResult Checkout(CheckoutViewModel checkout)
+        {
+            if (ModelState.IsValid)
+            {
+                CustomerInvoice invoice = new CustomerInvoice();
+                invoice.OrderDate = checkout.OrderDate;
+                invoice.SubTotal = checkout.SubTotal;
+                invoice.TotalWithTax = checkout.TotalWithTax;
+                invoice.CreditCardType = checkout.CreditCardType;
+                invoice.CardNumber = checkout.CardNumber;
+                invoice.CustomerUserName = checkout.CustomerUserName;
+                cusinvrepo.Insert(invoice);
+                CustomerInvoice lastinvoice = null;
+                foreach (var item in cusinvrepo.GetAll())
+                {
+                    lastinvoice = item;
+                }
+                foreach (var item in checkout.CartProductList)
+                {
+                    CustomerLineItem lineItem = new CustomerLineItem();
+                    lineItem.InvoiceId = lastinvoice.InvoiceId;
+                    lineItem.ProductId = item.ProductId;
+                    lineItem.Quantity = item.Quantity;
+                    lineItem.UnitPrice = item.UnitPrice;
+                    lineItem.Total = item.Quantity * item.UnitPrice;
+                    cuslirepo.Insert(lineItem);
+                    CompanyProduct product = comprodrepo.GetById(item.ProductId);
+                    product.Quantity = product.Quantity - item.Quantity;
+                    comprodrepo.Update(product);
+                }
+                return Created("http://localhost:51045/api/customerinvoices"+invoice.InvoiceId, invoice);
+            }
+            else
+                return BadRequest(ModelState);
+        }
     }
 }
